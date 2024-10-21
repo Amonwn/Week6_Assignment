@@ -12,7 +12,7 @@ my_secret_key = st.secrets['MyOpenAIKey']
 os.environ["OPENAI_API_KEY"] = my_secret_key
 
 prompt = st.text_input("What can I help you today?", " ")
-number = st.number_input("Insert expected integer number of token to be used", min_value=1)
+number = st.number_input("Insert expected number of token to be used", min_value=1)
 
 ### Request the answer to the promt
 client = OpenAI()
@@ -23,7 +23,8 @@ response = client.chat.completions.create(
     {"role": "user", "content": prompt}
   ],
   #n=10,
-  max_tokens=number
+  max_tokens=number,
+    temperature=0.8
 )
 
 ### Display
