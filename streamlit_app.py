@@ -4,7 +4,7 @@ import os
 
 st.title("🎈 My new app")
 st.write(
-    "What can I help you today?"
+    "Let's chat!"
 )
 
 ### Load your API Key
