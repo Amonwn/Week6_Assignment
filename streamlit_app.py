@@ -12,7 +12,7 @@ my_secret_key = st.secrets['MyOpenAIKey']
 os.environ["OPENAI_API_KEY"] = my_secret_key
 
 prompt = st.text_input("What can I help you today?", " ")
-number = st.number_input("Insert expected number of token to be used", min_value=1, max_value=100)
+number = st.number_input("Insert expected number of token to be used", min_value=10, max_value=200)
 
 ### Request the answer to the prompt1 (creativity)
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
