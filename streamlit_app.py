@@ -14,7 +14,7 @@ os.environ["OPENAI_API_KEY"] = my_secret_key
 prompt = st.text_input("What can I help you today?", " ")
 number = st.number_input("Insert expected number of token to be used", min_value=1)
 
-### Request the answer to the promt
+### Request the answer to the promt1 (creativity)
 client = OpenAI()
 response = client.chat.completions.create(
   model="gpt-4o-mini",
@@ -32,7 +32,7 @@ st.write(
     response.choices[0].message.content
 ) 
 
-### Request the answer to the promt
+### Request the answer to the promt2 (predictable)
 client = OpenAI()
 response = client.chat.completions.create(
   model="gpt-4o-mini",
@@ -41,7 +41,8 @@ response = client.chat.completions.create(
     {"role": "user", "content": prompt}
   ],
   #n=10,
-  max_tokens=number
+  max_tokens=number,
+    temperature=0.2
 )
 
 ### Display
