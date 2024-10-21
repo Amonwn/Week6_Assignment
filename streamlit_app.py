@@ -4,29 +4,28 @@ import os
 
 st.title("🎈 My new app")
 st.write(
-    "What can I help you today?."
+    "What can I help you today?"
 )
-
 
 ### Load your API Key
 my_secret_key = st.secrets['MyOpenAIKey']
 os.environ["OPENAI_API_KEY"] = my_secret_key
 
+prompt = st.text_input("What can I help you today?", " ")
 
-### Request the answer to the question "Damascus is a"
+### Request the answer to the promt
 client = OpenAI()
 response = client.chat.completions.create(
   model="gpt-4o-mini",
   messages=[
     {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": "Damascus is a"}
+    {"role": "user", "content": prompt}
   ],
   n=10,
   max_tokens=20
 )
 
-### Print all 10 completions:
-for i in range(10):
-    st.write(response.choices[i].message.content)
-  #print(response.choices[i].message.content) >> can't print here on sreamlit because there is no console, so we have to use st.write (found on streamlit documentation)
-    
+### Display
+st.write(
+    response.choices[0].message.content
+) 
