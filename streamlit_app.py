@@ -21,7 +21,7 @@ model = GPT2LMHeadModel.from_pretrained(model_name)
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
 input_ids = tokenizer.encode(prompt, return_tensors="pt")
-output = model.generate(input_ids, max_length=number)
+output = model.generate(input_ids, max_new_tokens=number)
 generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 
 
