@@ -17,7 +17,7 @@ number = st.number_input("Insert expected number of token to be used", min_value
 ### Request the answer to the prompt1 (creativity)
 client = OpenAI()
 response = client.chat.completions.create(
-  model="gpt-4o-mini",
+  model="gpt2",
   messages=[
     {"role": "system", "content": "Complete the following prefix"},
     {"role": "user", "content": prompt}
