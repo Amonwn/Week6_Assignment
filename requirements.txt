@@ -1,6 +1,2 @@
 streamlit
 openai
-vllm
-transformers
-tensorflow
-tf-keras
