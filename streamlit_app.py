@@ -29,7 +29,7 @@ response = client.chat.completions.create(
 
 ### Display
 st.write(
-    generated_text.choices[0].message.content
+    response.choices[0].message.content
 ) 
 
 ### Request the answer to the prompt2 (predictable)
