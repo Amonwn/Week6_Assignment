@@ -29,3 +29,20 @@ response = client.chat.completions.create(
 st.write(
     response.choices[0].message.content
 ) 
+
+### Request the answer to the promt
+client = OpenAI()
+response = client.chat.completions.create(
+  model="gpt-4o-mini",
+  messages=[
+    {"role": "system", "content": "Complete the following prefix"},
+    {"role": "user", "content": prompt}
+  ],
+  #n=10,
+  max_tokens=20
+)
+
+### Display
+st.write(
+    response.choices[0].message.content
+) 
