@@ -21,7 +21,7 @@ response = client.chat.completions.create(
     {"role": "system", "content": "Complete the following prefix"},
     {"role": "user", "content": prompt}
   ],
-  n=10,
+  #n=10,
   max_tokens=20
 )
 
