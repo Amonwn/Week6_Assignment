@@ -31,22 +31,14 @@ st.write(
 ) 
 
 ### Request the answer to the prompt2 (predictable)
-client = OpenAI()
-response = client.chat.completions.create(
-  model="gpt-4o-mini",
-  messages=[
-    {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": prompt}
-  ],
-  #n=10,
-  max_tokens=number,
-    temperature=0.2
-)
+
+
+
 
 ### Display
-st.write(
-    response.choices[0].message.content
-) 
+#st.write(
+#    response.choices[0].message.content
+#) 
 
 
 """
