@@ -46,7 +46,6 @@ response = client.chat.completions.create(
 )
 
 
-
 ### Display
 st.write(
     response.choices[0].message.content
