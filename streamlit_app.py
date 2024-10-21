@@ -15,9 +15,21 @@ prompt = st.text_input("What can I help you today?", " ")
 number = st.number_input("Insert expected number of token to be used", min_value=1)
 
 ### Request the answer to the prompt1 (creativity)
-from transformers import pipeline
-generator = pipeline('text-generation', model='gpt2')
-generator("Hello, I'm a language model,", max_length=number, temperature=0.8)
+#from transformers import pipeline
+#generator = pipeline('text-generation', model='gpt2')
+#generator("Hello, I'm a language model,", max_length=number, temperature=0.8)
+
+client = OpenAI()
+response = client.chat.completions.create(
+  model="gpt-2",
+  messages=[
+    {"role": "system", "content": "Complete the following prefix"},
+    {"role": "user", "content": prompt}
+  ],
+  #n=10,
+  max_tokens=number,
+    temperature=0.8
+)
 
 ### Display
 st.write(
