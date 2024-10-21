@@ -23,7 +23,7 @@ response = client.chat.completions.create(
     {"role": "user", "content": prompt}
   ],
   #n=10,
-  max_tokens=number
+  max_tokens= number
 )
 
 ### Display
